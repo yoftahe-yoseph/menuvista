@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-playfair: "Georgia", "Times New Roman", serif;
+    --font-inter: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #FDFBF7;
+    color: #0D241B;
+  }
+
+  body {
+    background-color: #FDFBF7;
+    color: #0D241B;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom utility animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera on category strip */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Print stylesheet so printing the QR Poster prints only the poster cleanly */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #0D241B !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only-poster {
+    box-shadow: none !important;
+    border: 2px solid #C5A059 !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+}
